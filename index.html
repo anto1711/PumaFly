@@ -3,54 +3,64 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="AC">
   <title>PumaFly Check-in</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #0a1f44, #1e3c72);
       color: white;
       text-align: center;
-      padding: 30px;
+      padding: 15px;
+      margin: 0;
     }
 
     .container {
-      background: white;
+      background: rgba(255, 255, 255, 0.95);
       color: #333;
+      width: 90%;
       max-width: 400px;
       margin: auto;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
     }
 
     h1 {
       color: #0a1f44;
       margin-bottom: 10px;
+      font-size: 22px;
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: bold;
       color: #0a1f44;
       margin-bottom: 20px;
     }
 
     input {
-      width: 90%;
-      padding: 10px;
+      width: 100%;
+      padding: 12px;
       margin: 8px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
     }
 
     button {
+      width: 100%;
       margin-top: 10px;
-      padding: 10px 20px;
+      padding: 14px;
       background: #0a1f44;
       color: white;
       border: none;
       border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
     }
 
@@ -91,7 +101,6 @@
       <p><strong>Destinazione:</strong> <span id="bpDestination"></span></p>
       <p><strong>Volo:</strong> <span id="bpFlight"></span></p>
       <p><strong>Gate:</strong> TBD</p>
-      <!-- <p><strong>Posto:</strong> - </p> -->
     </div>
   </div>
 
@@ -100,13 +109,14 @@
       const name = document.getElementById('name').value;
       const destination = document.getElementById('destination').value;
       const flight = document.getElementById('flight').value.toUpperCase().trim();
-      console.log(flight);
-      const flightNumbers = ["PF0106A", "PF0106B", "PF0106C", "PF0106D", "PF0106E"]
+
+      const flightNumbers = ["PF0106A", "PF0106B", "PF0106C", "PF0106D", "PF0106E"];
 
       if (!name || !destination || !flight) {
         alert("Compila tutti i campi!");
         return;
       }
+
       if (!flightNumbers.includes(flight)) {
         alert("Volo non trovato");
         return;
