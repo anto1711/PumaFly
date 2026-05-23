@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="AC">
+  <title>PumaFly Check-in</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0a1f44, #1e3c72);
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .container {
+      background: white;
+      color: #333;
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #0a1f44;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0a1f44;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0a1f44;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #142e66;
+    }
+
+    .boarding-pass {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .boarding-pass h3 {
+      margin: 10px 0;
+      color: #0a1f44;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="logo">✈️ PumaFly</div>
+    <h1>Check-in Online</h1>
+
+    <input type="text" id="name" placeholder="Nome e Cognome">
+    <input type="text" id="destination" placeholder="Destinazione">
+    <input type="text" id="flight" placeholder="Numero volo">
+
+    <button onclick="checkIn()">Fai Check-in</button>
+
+    <div class="boarding-pass" id="boardingPass">
+      <h3>Boarding Pass</h3>
+      <p><strong>Passeggero:</strong> <span id="bpName"></span></p>
+      <p><strong>Destinazione:</strong> <span id="bpDestination"></span></p>
+      <p><strong>Volo:</strong> <span id="bpFlight"></span></p>
+      <p><strong>Gate:</strong> TBD</p>
+      <!-- <p><strong>Posto:</strong> - </p> -->
+    </div>
+  </div>
+
+  <script>
+    function checkIn() {
+      const name = document.getElementById('name').value;
+      const destination = document.getElementById('destination').value;
+      const flight = document.getElementById('flight').value.toUpperCase().trim();
+      console.log(flight);
+      const flightNumbers = ["PF0106A", "PF0106B", "PF0106C", "PF0106D", "PF0106E"]
+
+      if (!name || !destination || !flight) {
+        alert("Compila tutti i campi!");
+        return;
+      }
+      if (!flightNumbers.includes(flight)) {
+        alert("Volo non trovato");
+        return;
+      }
+
+      document.getElementById('bpName').innerText = name;
+      document.getElementById('bpDestination').innerText = destination;
+      document.getElementById('bpFlight').innerText = flight;
+
+      document.getElementById('boardingPass').style.display = 'block';
+    }
+  </script>
+
+</body>
+
+</html>
