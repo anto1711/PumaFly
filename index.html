@@ -91,7 +91,7 @@
 
     <input type="text" id="name" placeholder="Nome e Cognome">
     <input type="text" id="destination" placeholder="Destinazione">
-    <input type="text" id="flight" placeholder="Numero volo">
+    <input type="text" id="flight" placeholder="Numero Prenotazione">
 
     <button onclick="checkIn()">Conferma Check-in</button>
 
@@ -99,7 +99,7 @@
       <h3>Boarding Pass</h3>
       <p><strong>Passeggero:</strong> <span id="bpName"></span></p>
       <p><strong>Destinazione:</strong> <span id="bpDestination"></span></p>
-      <p><strong>Volo:</strong> <span id="bpFlight"></span></p>
+      <p><strong>N. Prenotazione:</strong> <span id="bpFlight"></span></p>
       <p><strong>Gate:</strong> TBD</p>
     </div>
   </div>
@@ -118,7 +118,7 @@
       }
 
       if (!flightNumbers.includes(flight)) {
-        alert("Volo non trovato");
+        alert("Prenotazione non trovata");
         return;
       }
 
