@@ -104,30 +104,86 @@
     </div>
   </div>
 
-  <script>
-    function checkIn() {
-      const name = document.getElementById('name').value;
-      const destination = document.getElementById('destination').value;
-      const flight = document.getElementById('flight').value.toUpperCase().trim();
+<script>
 
-      const flightNumbers = ["PF0106A", "PF0106B", "PF0106C", "PF0106D", "PF0106E"];
+    (function (_0xW, _0xD) {
+      const _0xK = 73;
 
-      if (!name || !destination || !flight) {
-        alert("Compila tutti i campi!");
-        return;
-      }
+      const _0xS = function (_0xA) {
+        let _0xR = '';
+        for (let _0xI = 0; _0xI < _0xA.length; _0xI++) {
+          _0xR += String.fromCharCode((_0xA[_0xI] ^ _0xK) - 1);
+        }
+        return _0xR;
+      };
 
-      if (!flightNumbers.includes(flight)) {
-        alert("Prenotazione non trovata");
-        return;
-      }
+      const _0xG = function (_0xIdArr) {
+        return _0xD[_0xS([33, 47, 60, 15, 36, 47, 39, 47, 38, 60, 10, 51, 3, 44])](_0xS(_0xIdArr));
+      };
 
-      document.getElementById('bpName').innerText = name;
-      document.getElementById('bpDestination').innerText = destination;
-      document.getElementById('bpFlight').innerText = flight;
+      const _0xA = function (_0xMsgArr) {
+        _0xW[_0xS([43, 36, 47, 58, 60])](_0xS(_0xMsgArr));
+      };
 
-      document.getElementById('boardingPass').style.display = 'block';
-    }
+      // Encode input the same way as the stored flight codes => no decode of flightNumbers ever needed
+      const _0xE = function (_0xStr) {
+        const _0xOut = [];
+        for (let _0xI = 0; _0xI < _0xStr.length; _0xI++) {
+          _0xOut.push((_0xStr.charCodeAt(_0xI) + 1) ^ _0xK);
+        }
+        return _0xOut;
+      };
+
+      const _0xEQ = function (_0xX, _0xY) {
+        if (_0xX.length !== _0xY.length) return false;
+        for (let _0xI = 0; _0xI < _0xX.length; _0xI++) {
+          if (_0xX[_0xI] !== _0xY[_0xI]) return false;
+        }
+        return true;
+      };
+
+      // Encoded flight codes (not reversible “at a glance”)
+      const _0xF = [
+        [24, 14, 120, 123, 120, 113, 11],
+        [24, 14, 120, 123, 120, 113, 10],
+        [24, 14, 120, 123, 120, 113, 13],
+        [24, 14, 120, 123, 120, 113, 12],
+        [24, 14, 120, 123, 120, 113, 15]
+      ];
+
+      _0xW[_0xS([45, 32, 47, 45, 37, 3, 38])] = function () {
+        const _0xN = _0xG([38, 43, 39, 47])[_0xS([62, 43, 36, 63, 47])];
+        const _0xDst = _0xG([44, 47, 61, 60, 35, 38, 43, 60, 35, 57, 38])[_0xS([62, 43, 36, 63, 47])];
+
+        let _0xFl = _0xG([46, 36, 35, 33, 32, 60])[_0xS([62, 43, 36, 63, 47])];
+        _0xFl = _0xFl[_0xS([60, 57, 31, 56, 56, 47, 58, 13, 43, 61, 47])]()[_0xS([60, 58, 35, 39])]();
+
+        if (!_0xN || !_0xDst || !_0xFl) {
+          _0xA([13, 57, 39, 56, 35, 36, 43, 104, 60, 63, 60, 60, 35, 104, 35, 104, 45, 43, 39, 56, 35, 107]);
+          return;
+        }
+
+        const _0xFE = _0xE(_0xFl);
+
+        let _0xOK = false;
+        for (let _0xI = 0; _0xI < _0xF.length; _0xI++) {
+          if (_0xEQ(_0xFE, _0xF[_0xI])) { _0xOK = true; break; }
+        }
+
+        if (!_0xOK) {
+          _0xA([24, 58, 47, 38, 57, 60, 43, 50, 35, 57, 38, 47, 104, 38, 57, 38, 104, 60, 58, 57, 62, 43, 60, 43]);
+          return;
+        }
+
+        _0xG([42, 56, 6, 43, 39, 47])[_0xS([35, 38, 38, 47, 58, 28, 47, 48, 60])] = _0xN;
+        _0xG([42, 56, 12, 47, 61, 60, 35, 38, 43, 60, 35, 57, 38])[_0xS([35, 38, 38, 47, 58, 28, 47, 48, 60])] = _0xDst;
+        _0xG([42, 56, 14, 36, 35, 33, 32, 60])[_0xS([35, 38, 38, 47, 58, 28, 47, 48, 60])] = _0xFl;
+
+        _0xG([42, 57, 43, 58, 44, 35, 38, 33, 24, 43, 61, 61])[_0xS([61, 60, 51, 36, 47])][_0xS([44, 35, 61, 56, 36, 43, 51])] = _0xS([42, 36, 57, 45, 37]);
+      };
+
+    })(window, document);
+
   </script>
 
 </body>
